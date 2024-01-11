@@ -51,6 +51,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6327936F2B5033A100CA2C8A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				635D915F2B4D850600F099E8 /* SearchVC.swift */,
+				635D91612B4D858600F099E8 /* FavoritesListVC.swift */,
+				6373F47D2B4ED9A300829A25 /* FollowerListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		632793702B5033E400CA2C8A /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				6327936B2B50241800CA2C8A /* GFAlertVC.swift */,
+				635D91632B4D8E8A00F099E8 /* GFButton.swift */,
+				635D91652B4D925200F099E8 /* GFTextField.swift */,
+				6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */,
+				6373F4812B4EE26000829A25 /* GFBodyLabel.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		632793712B50343200CA2C8A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6327936D2B502F2100CA2C8A /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		632793722B50347800CA2C8A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				635D914B2B4D7DDB00F099E8 /* AppDelegate.swift */,
+				635D914D2B4D7DDB00F099E8 /* SceneDelegate.swift */,
+				635D91542B4D7DDD00F099E8 /* Assets.xcassets */,
+				635D91562B4D7DDD00F099E8 /* LaunchScreen.storyboard */,
+				635D91592B4D7DDD00F099E8 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		635D913F2B4D7DDB00F099E8 = {
 			isa = PBXGroup;
 			children = (
@@ -70,20 +112,10 @@
 		635D914A2B4D7DDB00F099E8 /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				635D914B2B4D7DDB00F099E8 /* AppDelegate.swift */,
-				635D914D2B4D7DDB00F099E8 /* SceneDelegate.swift */,
-				635D915F2B4D850600F099E8 /* SearchVC.swift */,
-				6373F47D2B4ED9A300829A25 /* FollowerListVC.swift */,
-				635D91612B4D858600F099E8 /* FavoritesListVC.swift */,
-				635D91632B4D8E8A00F099E8 /* GFButton.swift */,
-				635D91652B4D925200F099E8 /* GFTextField.swift */,
-				6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */,
-				6373F4812B4EE26000829A25 /* GFBodyLabel.swift */,
-				6327936B2B50241800CA2C8A /* GFAlertVC.swift */,
-				635D91542B4D7DDD00F099E8 /* Assets.xcassets */,
-				635D91562B4D7DDD00F099E8 /* LaunchScreen.storyboard */,
-				635D91592B4D7DDD00F099E8 /* Info.plist */,
-				6327936D2B502F2100CA2C8A /* UIViewController+Ext.swift */,
+				632793722B50347800CA2C8A /* Support */,
+				632793712B50343200CA2C8A /* Extensions */,
+				632793702B5033E400CA2C8A /* Custom Views */,
+				6327936F2B5033A100CA2C8A /* Screens */,
 			);
 			path = GithubFollowers;
 			sourceTree = "<group>";
@@ -309,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7543U2KSBJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubFollowers/Info.plist;
+				INFOPLIST_FILE = GithubFollowers/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -340,7 +372,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7543U2KSBJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubFollowers/Info.plist;
+				INFOPLIST_FILE = GithubFollowers/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
