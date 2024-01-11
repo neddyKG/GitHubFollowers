@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6327936C2B50241800CA2C8A /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327936B2B50241800CA2C8A /* GFAlertVC.swift */; };
 		635D914C2B4D7DDB00F099E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D914B2B4D7DDB00F099E8 /* AppDelegate.swift */; };
 		635D914E2B4D7DDB00F099E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D914D2B4D7DDB00F099E8 /* SceneDelegate.swift */; };
 		635D91552B4D7DDD00F099E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635D91542B4D7DDD00F099E8 /* Assets.xcassets */; };
@@ -16,9 +17,12 @@
 		635D91642B4D8E8A00F099E8 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D91632B4D8E8A00F099E8 /* GFButton.swift */; };
 		635D91662B4D925200F099E8 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D91652B4D925200F099E8 /* GFTextField.swift */; };
 		6373F47E2B4ED9A300829A25 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F47D2B4ED9A300829A25 /* FollowerListVC.swift */; };
+		6373F4802B4EE0CC00829A25 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */; };
+		6373F4822B4EE26000829A25 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F4812B4EE26000829A25 /* GFBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6327936B2B50241800CA2C8A /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		635D91482B4D7DDB00F099E8 /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		635D914B2B4D7DDB00F099E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		635D914D2B4D7DDB00F099E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		635D91632B4D8E8A00F099E8 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		635D91652B4D925200F099E8 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		6373F47D2B4ED9A300829A25 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
+		6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		6373F4812B4EE26000829A25 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				635D91612B4D858600F099E8 /* FavoritesListVC.swift */,
 				635D91632B4D8E8A00F099E8 /* GFButton.swift */,
 				635D91652B4D925200F099E8 /* GFTextField.swift */,
+				6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */,
+				6373F4812B4EE26000829A25 /* GFBodyLabel.swift */,
+				6327936B2B50241800CA2C8A /* GFAlertVC.swift */,
 				635D91542B4D7DDD00F099E8 /* Assets.xcassets */,
 				635D91562B4D7DDD00F099E8 /* LaunchScreen.storyboard */,
 				635D91592B4D7DDD00F099E8 /* Info.plist */,
@@ -150,6 +159,9 @@
 				635D91622B4D858600F099E8 /* FavoritesListVC.swift in Sources */,
 				635D91642B4D8E8A00F099E8 /* GFButton.swift in Sources */,
 				635D91602B4D850600F099E8 /* SearchVC.swift in Sources */,
+				6327936C2B50241800CA2C8A /* GFAlertVC.swift in Sources */,
+				6373F4822B4EE26000829A25 /* GFBodyLabel.swift in Sources */,
+				6373F4802B4EE0CC00829A25 /* GFTitleLabel.swift in Sources */,
 				6373F47E2B4ED9A300829A25 /* FollowerListVC.swift in Sources */,
 				635D914C2B4D7DDB00F099E8 /* AppDelegate.swift in Sources */,
 				635D914E2B4D7DDB00F099E8 /* SceneDelegate.swift in Sources */,
