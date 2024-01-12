@@ -23,6 +23,7 @@
 		6373F47E2B4ED9A300829A25 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F47D2B4ED9A300829A25 /* FollowerListVC.swift */; };
 		6373F4802B4EE0CC00829A25 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */; };
 		6373F4822B4EE26000829A25 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F4812B4EE26000829A25 /* GFBodyLabel.swift */; };
+		63E11A0E2B516B0800A39AAE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E11A0D2B516B0800A39AAE /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		6373F47D2B4ED9A300829A25 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		6373F47F2B4EE0CC00829A25 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		6373F4812B4EE26000829A25 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
+		63E11A0D2B516B0800A39AAE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		635D914A2B4D7DDB00F099E8 /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				63E11A0C2B516AF200A39AAE /* Manager */,
 				632793752B5041AA00CA2C8A /* Models */,
 				632793722B50347800CA2C8A /* Support */,
 				632793712B50343200CA2C8A /* Extensions */,
@@ -135,6 +138,14 @@
 				635D91592B4D7DDD00F099E8 /* Info.plist */,
 			);
 			path = GithubFollowers;
+			sourceTree = "<group>";
+		};
+		63E11A0C2B516AF200A39AAE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				63E11A0D2B516B0800A39AAE /* NetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +230,7 @@
 				6373F4802B4EE0CC00829A25 /* GFTitleLabel.swift in Sources */,
 				6373F47E2B4ED9A300829A25 /* FollowerListVC.swift in Sources */,
 				635D914C2B4D7DDB00F099E8 /* AppDelegate.swift in Sources */,
+				63E11A0E2B516B0800A39AAE /* NetworkManager.swift in Sources */,
 				635D914E2B4D7DDB00F099E8 /* SceneDelegate.swift in Sources */,
 				632793742B5039FD00CA2C8A /* GFContainerView.swift in Sources */,
 			);
