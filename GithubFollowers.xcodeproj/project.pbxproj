@@ -27,6 +27,7 @@
 		6373F4822B4EE26000829A25 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373F4812B4EE26000829A25 /* GFBodyLabel.swift */; };
 		63E11A0E2B516B0800A39AAE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E11A0D2B516B0800A39AAE /* NetworkManager.swift */; };
 		63E11A112B51796000A39AAE /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E11A102B51796000A39AAE /* ErrorMessage.swift */; };
+		63FB46002B67E26F0056DFCA /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB45FF2B67E26F0056DFCA /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		6373F4812B4EE26000829A25 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		63E11A0D2B516B0800A39AAE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		63E11A102B51796000A39AAE /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		63FB45FF2B67E26F0056DFCA /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				63E11A102B51796000A39AAE /* ErrorMessage.swift */,
+				63FB45FF2B67E26F0056DFCA /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				6373F47E2B4ED9A300829A25 /* FollowerListVC.swift in Sources */,
 				635D914C2B4D7DDB00F099E8 /* AppDelegate.swift in Sources */,
 				63E11A112B51796000A39AAE /* ErrorMessage.swift in Sources */,
+				63FB46002B67E26F0056DFCA /* UIHelper.swift in Sources */,
 				63E11A0E2B516B0800A39AAE /* NetworkManager.swift in Sources */,
 				635D914E2B4D7DDB00F099E8 /* SceneDelegate.swift in Sources */,
 				632793742B5039FD00CA2C8A /* GFContainerView.swift in Sources */,
