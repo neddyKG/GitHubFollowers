@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GithubFollowers
 //
-//  Created by Neddy Ksenia Gonzalez Siles on 12/1/24.
+//  Created by Neddy Ksenia Gonzalez Siles on 30/1/24.
 //
 
 import Foundation
