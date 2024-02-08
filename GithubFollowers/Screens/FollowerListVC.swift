@@ -42,6 +42,8 @@ class FollowerListVC: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFavoriteBtnTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     func configureCollectionView() {
@@ -133,6 +135,10 @@ extension FollowerListVC: UICollectionViewDelegate {
 
         let navController = UINavigationController(rootViewController: userInfoVC)
         present(navController, animated: true)
+    }
+    
+    @objc func addFavoriteBtnTapped() {
+        print("Add btn tappped!")
     }
 }
 
