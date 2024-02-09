@@ -80,6 +80,11 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+/* .iso8601 is the standard for dates (usually from servers) -> "yyyy-MM-dd'T'HH:mm:ssZ".
+ So basically the string "yyyy-MM-dd'T'HH:mm:ssZ" we recieve from the endpoint,
+ it'll (decoder.dateDecodingStrategy = .iso8601) convert to Date.
+ */
+                decoder.dateDecodingStrategy = .iso8601
                 let user = try decoder.decode(User.self, from: data)
                 completed(.success(user))
             } catch {
