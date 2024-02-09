@@ -32,7 +32,7 @@ class SearchVC: UIViewController {
     }
     
     func createDismissKeyBoardTapGesture() {
-            let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+            let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
             view.addGestureRecognizer(tap)
     }
     
@@ -51,16 +51,12 @@ class SearchVC: UIViewController {
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")!
+        logoImageView.image = Images.ghLogo
         
 //        try to no use this much. Mission is to just tweak a few things; and let autolayout and size classes do the work.
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
         logoImageViewTopConstraint.isActive = true
-        
-        if !DeviceTypes.isiPhoneSE {
-            view.backgroundColor = .red
-        }
         
         // Usually you'll have 4 constraints (height, width, x, y), what autolayout needs
         NSLayoutConstraint.activate([
