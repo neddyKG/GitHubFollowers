@@ -27,29 +27,42 @@ class GFEmptyStateView: UIView {
     }
     
     private func configure() {
+        configureMessageLabel()
+        configureLogoImageView()
+    }
+    
+    private func configureMessageLabel() {
         addSubview(messageLabel)
-        addSubview(logoImageView)
-        
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
         
+        let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -100 : -150
+        let messageLabelCenterYConstraint = messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant)
+        messageLabelCenterYConstraint.isActive = true
+        
+        NSLayoutConstraint.activate([
+            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            // The height is hardcoded to 200 cause the text is defined, not dynamic.
+            messageLabel.heightAnchor.constraint(equalToConstant: 200),
+        ])
+    }
+    
+    private func configureLogoImageView() {
+        addSubview(logoImageView)
         logoImageView.image = Images.emptyStateLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let spacingMessageLabel: CGFloat = 40
+
+        let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 150 : 130
+        let logoImageViewBottomConstraint = logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoBottomConstant)
+        logoImageViewBottomConstraint.isActive = true
         
         // It's better to use leading and trailing, than left right. Cause of phone flip.
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
-            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: spacingMessageLabel),
-            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -spacingMessageLabel),
-            // The height is hardcoded to 200 cause the text is defined, not dynamic.
-            messageLabel.heightAnchor.constraint(equalToConstant: 200),
             // Make the image width 30% larger than the width of the view (which is of the screen in this case)
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 180),
-            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 130),
         ])
     }
 }
