@@ -42,6 +42,7 @@
 		63FB46082B693AA80056DFCA /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB46072B693AA80056DFCA /* GFEmptyStateView.swift */; };
 		63FB460A2B694ED70056DFCA /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB46092B694ED70056DFCA /* UserInfoVC.swift */; };
 		63FB460E2B6958E00056DFCA /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB460D2B6958E00056DFCA /* GFError.swift */; };
+		63FDD3E92B77C77B0036059D /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDD3E82B77C77B0036059D /* UIView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		63FB46072B693AA80056DFCA /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		63FB46092B694ED70056DFCA /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		63FB460D2B6958E00056DFCA /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
+		63FDD3E82B77C77B0036059D /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				6327936D2B502F2100CA2C8A /* UIViewController+Ext.swift */,
 				63333BC62B6BFA1B002D3315 /* Date+Ext.swift */,
+				63FDD3E82B77C77B0036059D /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FDD3E92B77C77B0036059D /* UIView+Ext.swift in Sources */,
 				635D91662B4D925200F099E8 /* GFTextField.swift in Sources */,
 				63FB460E2B6958E00056DFCA /* GFError.swift in Sources */,
 				635D91622B4D858600F099E8 /* FavoritesListVC.swift in Sources */,

@@ -59,12 +59,13 @@ class GFUserInfoHeaderVC: UIViewController {
      on the many ways to do them, and based on that choose the one we prefer.
      (sidenote: another way to do this would've been adding elements to an array and iterate through to add as subview) */
     func addSubviews() {
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
+        view.addSubviews(
+            avatarImageView,
+            usernameLabel,
+            nameLabel,
+            locationImageView,
+            locationLabel,
+            bioLabel)
     }
     
     // try to do it with stackView the text beside avatar image.
