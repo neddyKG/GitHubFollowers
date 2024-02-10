@@ -40,7 +40,7 @@ class GFUserInfoHeaderVC: UIViewController {
         nameLabel.text = user.name ?? ""
         locationLabel.text = user.location ?? "No location"
         bioLabel.text = user.bio ?? "No bio available"
-        bioLabel.numberOfLines = 4
+        bioLabel.numberOfLines = 0
         
         locationImageView.image = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
@@ -104,7 +104,7 @@ class GFUserInfoHeaderVC: UIViewController {
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            bioLabel.heightAnchor.constraint(equalToConstant: 60)
+            bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
 
