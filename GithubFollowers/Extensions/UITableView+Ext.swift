@@ -8,6 +8,14 @@
 import UIKit
 
 extension  UITableView {
+    
+//    We don't use in this app, but it's useful in gral. for other apps where this repeats.
+    func reloadDataOnMainThread() {
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+    }
+    
     func removeExcessCells() {
         tableFooterView = UIView(frame: .zero)
     }
