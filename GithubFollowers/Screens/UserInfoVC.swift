@@ -56,11 +56,9 @@ class UserInfoVC: UIViewController {
     // MARK: UI
     
     func configureUIElements(with user: User) {
-        let repoItemVC = GFRepoItemVC(user: user)
-        repoItemVC.delegate = self
+        let repoItemVC = GFRepoItemVC(user: user, delegate: self)
         
-        let followerItemVC = GFFollowerItemVC(user: user)
-        followerItemVC.delegate = self
+        let followerItemVC = GFFollowerItemVC(user: user, delegate: self)
         
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
         self.add(childVC: repoItemVC, to: self.itemViewOne)
@@ -111,22 +109,25 @@ class UserInfoVC: UIViewController {
     }
 }
 
-extension UserInfoVC: ItemInfoVCDelegate {
+
+extension UserInfoVC: GFRepoItemVCDelegate {
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
         }
-        
+
         presentSafariVC(with: url)
     }
-    
+}
+
+extension UserInfoVC: GFFollowerItemVCDelegate {
     func didTapGetFollowers(for user: User) {
         guard user.followers > 0 else {
             presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 🙁.", buttonTitle: "Ok")
             return
         }
-        
+
         delegate.didRequestFollowers(for: user.login)
         dismissVC()
     }
