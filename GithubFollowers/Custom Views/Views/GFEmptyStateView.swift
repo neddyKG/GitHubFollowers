@@ -37,10 +37,9 @@ class GFEmptyStateView: UIView {
         messageLabel.textColor = .secondaryLabel
         
         let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -100 : -150
-        let messageLabelCenterYConstraint = messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant)
-        messageLabelCenterYConstraint.isActive = true
         
         NSLayoutConstraint.activate([
+            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant),
             messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             // The height is hardcoded to 200 cause the text is defined, not dynamic.
@@ -51,10 +50,8 @@ class GFEmptyStateView: UIView {
     private func configureLogoImageView() {
         logoImageView.image = Images.emptyStateLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 150 : 130
-        let logoImageViewBottomConstraint = logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoBottomConstant)
-        logoImageViewBottomConstraint.isActive = true
         
         // It's better to use leading and trailing, than left right. Cause of phone flip.
         NSLayoutConstraint.activate([
@@ -62,6 +59,7 @@ class GFEmptyStateView: UIView {
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 180),
+            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoBottomConstant)
         ])
     }
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 class FollowerCell: UICollectionViewCell {
-    static let reuseID = "FollowerCell"
     
+    static let reuseID = "FollowerCell"
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let usernameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
     
@@ -29,7 +29,6 @@ class FollowerCell: UICollectionViewCell {
     
     private func configure() {
         addSubviews(avatarImageView, usernameLabel)
-        
         let padding: CGFloat = 8
         
         // All cells have contentView
