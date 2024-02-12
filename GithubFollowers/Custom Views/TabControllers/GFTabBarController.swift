@@ -8,7 +8,7 @@
 import UIKit
 
 class GFTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemGreen
@@ -25,7 +25,7 @@ class GFTabBarController: UITabBarController {
     
     func createFavoritesNC() -> UINavigationController {
         let favoritesListVC = FavoritesListVC()
-        favoritesListVC.title = "Search"
+        favoritesListVC.title = "Favorites"
         favoritesListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         
         return UINavigationController(rootViewController: favoritesListVC)

@@ -35,7 +35,7 @@ enum DeviceTypes {
     
     static let isiPhoneSE = idiom == .phone && ScreenSize.maxLength == 568.0
     static let isiPhone8Standard = idiom == .phone && ScreenSize.maxLength == 667.0 && nativeScale == scale
-//    if it's in zoomed mode, it'll turn the screen size into isiPhoneSE
+    //    if it's in zoomed mode, it'll turn the screen size into isiPhoneSE
     static let isiPhone8Zoomed = idiom == .phone && ScreenSize.maxLength == 667.0 && nativeScale > scale
     static let isiPhone8PlusStandard = idiom == .phone && ScreenSize.maxLength == 736.0
     //    if it's in zoomed mode, it'll turn the screen size into iPhone8Standard
@@ -44,7 +44,7 @@ enum DeviceTypes {
     static let isiPhoneXsMaxAndXr = idiom == .phone && ScreenSize.maxLength == 896.0
     static let isiPad = idiom == .pad && ScreenSize.maxLength >= 1024.0
     
-//    This has a differemt aspect ratio than from the rest of older phones (7,8)
+    //    This has a differemt aspect ratio than from the rest of older phones (7,8)
     static func isiPhoneXAspectRatio() -> Bool {
         return isiPhoneX || isiPhoneXsMaxAndXr
     }

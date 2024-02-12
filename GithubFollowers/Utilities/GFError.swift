@@ -8,7 +8,7 @@
 import Foundation
 
 /* associated value = each case in the enum has a type
-vs. raw value = the whole enum hasa type */
+ vs. raw value = the whole enum hasa type */
 enum GFError: String, Error {
     case invalidUsername = "This username created an invalid request. Please try again."
     case unableToComplete = "Unable to complete your request. Please check your internet connection."

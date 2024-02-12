@@ -8,9 +8,9 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared = NetworkManager()
     private let baseURL = "https://api.github.com"
-    
     // We set it in the Network manager cause it's a singleton.
     let cache = NSCache<NSString, UIImage>()
     
@@ -108,16 +108,15 @@ class NetworkManager {
         }
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            
             guard let self = self,
-            error == nil,
-            let response = response as? HTTPURLResponse, response.statusCode ==  200,
-            let data = data,
-            let image = UIImage(data: data) else {
+                  error == nil,
+                  let response = response as? HTTPURLResponse, response.statusCode ==  200,
+                  let data = data,
+                  let image = UIImage(data: data) else {
                 completed(nil)
                 return
             }
-         
+            
             self.cache.setObject(image, forKey: cacheKey)
             completed(image)
         }

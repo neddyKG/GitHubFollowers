@@ -34,30 +34,6 @@ class GFUserInfoHeaderVC: UIViewController {
         configureUIElements()
     }
     
-    func configureUIElements() {
-        downloadAvatarImage()
-        usernameLabel.text = user.login
-        nameLabel.text = user.name ?? ""
-        locationLabel.text = user.location ?? "No location"
-        bioLabel.text = user.bio ?? "No bio available"
-        bioLabel.numberOfLines = 0
-        
-        locationImageView.image = SFSymbols.location
-        locationImageView.tintColor = .secondaryLabel
-    }
-    
-    func downloadAvatarImage() {
-        NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] image in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.avatarImageView.image = image
-            }
-        }
-    }
-    
-    /* We're doing the same things in different ways, so we get exposed
-     on the many ways to do them, and based on that choose the one we prefer.
-     (sidenote: another way to do this would've been adding elements to an array and iterate through to add as subview) */
     func addSubviews() {
         view.addSubviews(
             avatarImageView,
@@ -107,5 +83,16 @@ class GFUserInfoHeaderVC: UIViewController {
             bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
-
+    
+    func configureUIElements() {
+        avatarImageView.downloadAvatarImage(fromUrl: user.avatarUrl)
+        usernameLabel.text = user.login
+        nameLabel.text = user.name ?? ""
+        locationLabel.text = user.location ?? "No location"
+        bioLabel.text = user.bio ?? "No bio available"
+        bioLabel.numberOfLines = 0
+        
+        locationImageView.image = SFSymbols.location
+        locationImageView.tintColor = .secondaryLabel
+    }
 }

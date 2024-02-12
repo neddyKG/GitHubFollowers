@@ -8,7 +8,7 @@
 import UIKit
 
 class GFTitleLabel: UILabel {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -18,14 +18,14 @@ class GFTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-/*    convenience has to call one of the designated initializers for the object, in this case it's
- override init(frame: CGRect) {
+    /*    convenience has to call one of the designated initializers for the object, in this case it's
+     override init(frame: CGRect) {
      super.init(frame: frame)
- }
- 
- Another thing pro about the convenience init is that it could set default values to parameters.
- ex. let's say ypu have 7 params, the convenience can set 5 default vals and you just have to pass 2.
- */
+     }
+     
+     Another thing pro about the convenience init is that it could set default values to parameters.
+     ex. let's say ypu have 7 params, the convenience can set 5 default vals and you just have to pass 2.
+     */
     convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
@@ -40,5 +40,5 @@ class GFTitleLabel: UILabel {
         lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
 }

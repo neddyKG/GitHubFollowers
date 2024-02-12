@@ -26,7 +26,7 @@ class GFBodyLabel: UILabel {
     private func configure() {
         textColor = .secondaryLabel
         font = UIFont.preferredFont(forTextStyle: .body)
-//        Dynamic type font size = adjustsFontForContentSizeCategory.
+        //        Dynamic type font size = adjustsFontForContentSizeCategory.
         adjustsFontForContentSizeCategory = true
         adjustsFontSizeToFitWidth = true
         // 90%, it'll allow to shrink a little bit. The lower the %, the more it'll shrink.

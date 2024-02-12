@@ -18,7 +18,6 @@ enum UIHelper {
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        
         // + 40 -> Considering the space for the label.
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
         
