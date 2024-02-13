@@ -34,28 +34,14 @@ class GFUserInfoHeaderVC: UIViewController {
         configureUIElements()
     }
     
-    func configureUIElements() {
-        avatarImageView.downloadImage(from: user.avatarUrl)
-        usernameLabel.text = user.login
-        nameLabel.text = user.name ?? ""
-        locationLabel.text = user.location ?? "No location"
-        bioLabel.text = user.bio ?? "No bio available"
-        bioLabel.numberOfLines = 4
-        
-        locationImageView.image = UIImage(systemName: SFSymbols.location)
-        locationImageView.tintColor = .secondaryLabel
-    }
-    
-    /* We're doing the same things in different ways, so we get exposed
-     on the many ways to do them, and based on that choose the one we prefer.
-     (sidenote: another way to do this would've been adding elements to an array and iterate through to add as subview) */
     func addSubviews() {
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
+        view.addSubviews(
+            avatarImageView,
+            usernameLabel,
+            nameLabel,
+            locationImageView,
+            locationLabel,
+            bioLabel)
     }
     
     // try to do it with stackView the text beside avatar image.
@@ -94,8 +80,19 @@ class GFUserInfoHeaderVC: UIViewController {
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            bioLabel.heightAnchor.constraint(equalToConstant: 60)
+            bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
-
+    
+    func configureUIElements() {
+        avatarImageView.downloadAvatarImage(fromUrl: user.avatarUrl)
+        usernameLabel.text = user.login
+        nameLabel.text = user.name ?? ""
+        locationLabel.text = user.location ?? "No location"
+        bioLabel.text = user.bio ?? "No bio available"
+        bioLabel.numberOfLines = 0
+        
+        locationImageView.image = SFSymbols.location
+        locationImageView.tintColor = .secondaryLabel
+    }
 }

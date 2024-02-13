@@ -9,7 +9,7 @@ import UIKit
 
 class GFAlertVC: UIViewController {
     
-    let containerView = GFContainerView(containerBackgroundColor: .systemBackground, borderColor: UIColor.white.cgColor)
+    let containerView = GFAlertContainerView()
     let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GFBodyLabel(textAlignment: .center)
     let actionButton = GFButton(background: .systemPink, title: "Ok")
@@ -21,6 +21,8 @@ class GFAlertVC: UIViewController {
     let padding: CGFloat = 20
     
     init(title: String? = nil, message: String? = nil, buttonTitle: String? = nil) {
+        
+        //        designated initializer
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = title
         self.message = message
@@ -33,13 +35,14 @@ class GFAlertVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
         configureMessageLabel()
     }
-  
+    
     func configureContainerView() {
         view.addSubview(containerView)
         
@@ -63,7 +66,7 @@ class GFAlertVC: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 28)
+            //            titleLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
     
@@ -96,5 +99,5 @@ class GFAlertVC: UIViewController {
             messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12)
         ])
     }
-
+    
 }

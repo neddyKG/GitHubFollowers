@@ -19,6 +19,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubviews(logoImageView, callToActionButton, usernameTextField)
         configureLogoImageView()
         configureCallToActionButton()
         configureTextField()
@@ -27,34 +28,20 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func createDismissKeyBoardTapGesture() {
-            let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-            view.addGestureRecognizer(tap)
-    }
-    
-    @objc func pushFollowerListVC() {
-        guard isUsernameEntered else {
-            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for! 😃", buttonTitle: "Ok")
-            return
-        }
-        
-        let followerListVC = FollowerListVC()
-        followerListVC.username = usernameTextField.text
-        followerListVC.title = usernameTextField.text
-        navigationController?.pushViewController(followerListVC, animated: true)
-    }
-    
     func configureLogoImageView() {
-        view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")!
+        logoImageView.image = Images.ghLogo
+        
+//        try to no use this much. Mission is to just tweak a few things; and let autolayout and size classes do the work.
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         
         // Usually you'll have 4 constraints (height, width, x, y), what autolayout needs
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200)
@@ -62,7 +49,6 @@ class SearchVC: UIViewController {
     }
     
     func configureCallToActionButton() {
-        view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -73,8 +59,20 @@ class SearchVC: UIViewController {
         ])
     }
     
+    @objc func pushFollowerListVC() {
+        guard isUsernameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for! 😃", buttonTitle: "Ok")
+            return
+        }
+        
+        // remove keyboard
+        usernameTextField.resignFirstResponder()
+        
+        let followerListVC = FollowerListVC(username: usernameTextField.text!)
+        navigationController?.pushViewController(followerListVC, animated: true)
+    }
+    
     func configureTextField() {
-        view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         
         NSLayoutConstraint.activate([
@@ -84,7 +82,12 @@ class SearchVC: UIViewController {
             usernameTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-
+    
+    func createDismissKeyBoardTapGesture() {
+            let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+            view.addGestureRecognizer(tap)
+    }
+ 
 }
 
 extension SearchVC: UITextFieldDelegate {
