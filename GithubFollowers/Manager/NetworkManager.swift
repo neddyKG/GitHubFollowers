@@ -97,7 +97,7 @@ class NetworkManager {
         }
     }
     
-    func downloadImage(from urlString: String) async throws -> UIImage? {
+    func downloadImage(from urlString: String) async -> UIImage? {
         let cacheKey = NSString(string: urlString)
         if let image = cache.object(forKey: cacheKey) {
             return image
@@ -107,15 +107,16 @@ class NetworkManager {
             return nil
         }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode ==  200,
-              let image = UIImage(data: data) else {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let image = UIImage(data: data) else {
+                return nil
+            }
+            self.cache.setObject(image, forKey: cacheKey)
+            return image
+        } catch {
             return nil
         }
-        
-        self.cache.setObject(image, forKey: cacheKey)
-        return image
     }
     
 }
