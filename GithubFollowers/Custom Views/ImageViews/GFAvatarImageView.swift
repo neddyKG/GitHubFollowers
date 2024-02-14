@@ -29,11 +29,8 @@ class GFAvatarImageView: UIImageView {
     }
     
     func downloadAvatarImage(fromUrl url: String) {
-        NetworkManager.shared.downloadImage(from: url) { [weak self] image in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.image = image
-            }
+        Task {
+            image = await NetworkManager.shared.downloadImage(from: url) ?? placeholderImage
         }
     }
 }
