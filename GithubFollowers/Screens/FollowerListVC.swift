@@ -74,10 +74,10 @@ class FollowerListVC: GFDataLoadingVC {
         showLoadingView()
         isLoadingMoreFollowers = true
         
-/*        On api calls with async/await you don't need [weak self] it handles this under the hood.
- And you don't need DispatchQueue.main.async, cause now everything that has @MainActor,
-which handles UI running on main thread.
- */
+        /*        On api calls with async/await you don't need [weak self] it handles this under the hood.
+         And you don't need DispatchQueue.main.async, cause now everything that has @MainActor,
+         which handles UI running on main thread.
+         */
         Task {
             do {
                 let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
@@ -92,38 +92,38 @@ which handles UI running on main thread.
                 
                 dismissLoadingView()
             }
-        
-//            Another way to make the api call, if you don't show a specific error.
-//            guard let followers = try? await NetworkManager.shared.getFollowers(for: username, page: page) else {
-//                presentDefaultError()
-//                dismissLoadingView()
-//                return
-//            }
-//
-//            updateUI(with: followers)
-//            dismissLoadingView()
+            
+            //            Another way to make the api call, if you don't show a specific error.
+            //            guard let followers = try? await NetworkManager.shared.getFollowers(for: username, page: page) else {
+            //                presentDefaultError()
+            //                dismissLoadingView()
+            //                return
+            //            }
+            //
+            //            updateUI(with: followers)
+            //            dismissLoadingView()
             
             isLoadingMoreFollowers = false
         }
         
-// API calls before iOS 15
-//        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-//            guard let self = self else { return }
-//            self.dismissLoadingView()
-//
-//            switch result {
-//            case .success(let followers):
-//                self.updateUI(with: followers)
-//
-//            case .failure(let error):
-//                self.presentGFAlertOnMainThread(title: "Bad stuff", message: error.rawValue, buttonTitle: "Ok")
-//            }
-//
-//            isLoadingMoreFollowers = false
-//        }
-//    }
-    
-
+        // API calls before iOS 15
+        //        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+        //            guard let self = self else { return }
+        //            self.dismissLoadingView()
+        //
+        //            switch result {
+        //            case .success(let followers):
+        //                self.updateUI(with: followers)
+        //
+        //            case .failure(let error):
+        //                self.presentGFAlertOnMainThread(title: "Bad stuff", message: error.rawValue, buttonTitle: "Ok")
+        //            }
+        //
+        //            isLoadingMoreFollowers = false
+        //        }
+        //    }
+        
+        
     }
     
     func updateUI(with followers: [Follower]) {
@@ -190,17 +190,19 @@ extension FollowerListVC: UICollectionViewDelegate {
     
     @objc func addFavoriteBtnTapped() {
         showLoadingView()
-        
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case .success(let user):
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                self.dismissLoadingView()
                 addUserToFavorites(user: user)
+            } catch {
+                self.dismissLoadingView()
                 
-            case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+                if let gfError = error as? GFError {
+                    self.presentGFAlert(title: "Somthing went wrong", message: gfError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
             }
         }
     }

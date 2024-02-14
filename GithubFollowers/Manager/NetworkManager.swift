@@ -77,43 +77,24 @@ class NetworkManager {
         }
     }
     
-    func getUserInfo(for username: String, completed: @escaping (Result<User, GFError>) -> Void) {
+    func getUserInfo(for username: String) async throws -> User {
         let endpoint = baseURL + "/users/\(username)"
         
         guard let url = URL(string: endpoint) else {
-            completed(.failure(.invalidUsername))
-            return
+            throw GFError.invalidUsername
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                /* .iso8601 is the standard for dates (usually from servers) -> "yyyy-MM-dd'T'HH:mm:ssZ".
-                 So basically the string "yyyy-MM-dd'T'HH:mm:ssZ" we recieve from the endpoint,
-                 it'll (decoder.dateDecodingStrategy = .iso8601) convert to Date.
-                 */
-                let user = try self.decoder.decode(User.self, from: data)
-                completed(.success(user))
-            } catch {
-                completed(.failure(.invalidData))
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GFError.invalidResponse
         }
         
-        task.resume()
+        do {
+            return try decoder.decode(User.self, from: data)
+        } catch {
+            throw GFError.invalidData
+        }
     }
     
     func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
