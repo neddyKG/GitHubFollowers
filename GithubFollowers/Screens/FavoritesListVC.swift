@@ -56,15 +56,21 @@ class FavoritesListVC: GFDataLoadingVC {
     }
     
     func updateUI(with favorites: [Follower]) {
-        if favorites.isEmpty {
-            self.showEmptyStateView(with: "No favorites yet!\nAdd one on the follower screen.", in: self.view)
-            return
-        }
+        self.showEmptyStateViewOnFavoritesEmpty()
+        if favorites.isEmpty { return }
         
         self.favorites = favorites
         DispatchQueue.main.async {
+            print("fave: ", self.favorites)
             self.tableView.reloadData()
             self.view.bringSubviewToFront(self.tableView)
+            return
+        }
+    }
+    
+    func showEmptyStateViewOnFavoritesEmpty() {
+        if favorites.isEmpty {
+            self.showEmptyStateView(with: "No favorites yet!\nAdd one on the follower screen.", in: self.view)
         }
     }
 }
@@ -98,6 +104,10 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
             guard let error = error else {
                 favorites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .left)
+                
+                DispatchQueue.main.async {
+                    self.showEmptyStateViewOnFavoritesEmpty()
+                }
                 return
             }
             self.presentGFAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
